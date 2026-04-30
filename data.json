@@ -1,0 +1,364 @@
+{
+  "aliments": [
+    {
+      "id": 1,
+      "nom": "Poulet grillé",
+      "categorie": "Viandes",
+      "calories": 165,
+      "proteines": 31,
+      "glucides": 0,
+      "lipides": 3.6
+    },
+    {
+      "id": 2,
+      "nom": "Riz blanc cuit",
+      "categorie": "Féculents",
+      "calories": 130,
+      "proteines": 2.7,
+      "glucides": 28,
+      "lipides": 0.3
+    },
+    {
+      "id": 3,
+      "nom": "Pâtes cuites",
+      "categorie": "Féculents",
+      "calories": 131,
+      "proteines": 5,
+      "glucides": 25,
+      "lipides": 1.1
+    },
+    {
+      "id": 4,
+      "nom": "Pomme de terre cuite",
+      "categorie": "Féculents",
+      "calories": 86,
+      "proteines": 2,
+      "glucides": 20,
+      "lipides": 0.1
+    },
+    {
+      "id": 5,
+      "nom": "Pain complet",
+      "categorie": "Féculents",
+      "calories": 247,
+      "proteines": 13,
+      "glucides": 41,
+      "lipides": 3.5
+    },
+    {
+      "id": 6,
+      "nom": "Pain blanc",
+      "categorie": "Féculents",
+      "calories": 265,
+      "proteines": 9,
+      "glucides": 49,
+      "lipides": 3.2
+    },
+    {
+      "id": 7,
+      "nom": "Bœuf haché 5% MG",
+      "categorie": "Viandes",
+      "calories": 137,
+      "proteines": 21,
+      "glucides": 0,
+      "lipides": 5
+    },
+    {
+      "id": 8,
+      "nom": "Bœuf haché 15% MG",
+      "categorie": "Viandes",
+      "calories": 250,
+      "proteines": 17,
+      "glucides": 0,
+      "lipides": 20
+    },
+    {
+      "id": 9,
+      "nom": "Saumon",
+      "categorie": "Poissons",
+      "calories": 208,
+      "proteines": 20,
+      "glucides": 0,
+      "lipides": 13
+    },
+    {
+      "id": 10,
+      "nom": "Thon au naturel",
+      "categorie": "Poissons",
+      "calories": 116,
+      "proteines": 26,
+      "glucides": 0,
+      "lipides": 0.8
+    },
+    {
+      "id": 11,
+      "nom": "Œuf entier",
+      "categorie": "Œufs & Produits laitiers",
+      "calories": 145,
+      "proteines": 13,
+      "glucides": 0.7,
+      "lipides": 10
+    },
+    {
+      "id": 12,
+      "nom": "Blanc d'œuf",
+      "categorie": "Œufs & Produits laitiers",
+      "calories": 52,
+      "proteines": 11,
+      "glucides": 0.7,
+      "lipides": 0.2
+    },
+    {
+      "id": 13,
+      "nom": "Lait demi-écrémé",
+      "categorie": "Œufs & Produits laitiers",
+      "calories": 46,
+      "proteines": 3.2,
+      "glucides": 4.8,
+      "lipides": 1.6
+    },
+    {
+      "id": 14,
+      "nom": "Yaourt nature 0%",
+      "categorie": "Œufs & Produits laitiers",
+      "calories": 44,
+      "proteines": 4.3,
+      "glucides": 6,
+      "lipides": 0.1
+    },
+    {
+      "id": 15,
+      "nom": "Fromage blanc 0%",
+      "categorie": "Œufs & Produits laitiers",
+      "calories": 47,
+      "proteines": 8,
+      "glucides": 4,
+      "lipides": 0.2
+    },
+    {
+      "id": 16,
+      "nom": "Fromage blanc 20%",
+      "categorie": "Œufs & Produits laitiers",
+      "calories": 98,
+      "proteines": 7.5,
+      "glucides": 3.5,
+      "lipides": 6
+    },
+    {
+      "id": 17,
+      "nom": "Emmental",
+      "categorie": "Œufs & Produits laitiers",
+      "calories": 382,
+      "proteines": 28,
+      "glucides": 0.4,
+      "lipides": 30
+    },
+    {
+      "id": 18,
+      "nom": "Banane",
+      "categorie": "Fruits",
+      "calories": 89,
+      "proteines": 1.1,
+      "glucides": 23,
+      "lipides": 0.3
+    },
+    {
+      "id": 19,
+      "nom": "Pomme",
+      "categorie": "Fruits",
+      "calories": 52,
+      "proteines": 0.3,
+      "glucides": 14,
+      "lipides": 0.2
+    },
+    {
+      "id": 20,
+      "nom": "Orange",
+      "categorie": "Fruits",
+      "calories": 47,
+      "proteines": 0.9,
+      "glucides": 12,
+      "lipides": 0.1
+    },
+    {
+      "id": 21,
+      "nom": "Fraises",
+      "categorie": "Fruits",
+      "calories": 32,
+      "proteines": 0.7,
+      "glucides": 8,
+      "lipides": 0.3
+    },
+    {
+      "id": 22,
+      "nom": "Avocat",
+      "categorie": "Fruits",
+      "calories": 160,
+      "proteines": 2,
+      "glucides": 9,
+      "lipides": 15
+    },
+    {
+      "id": 23,
+      "nom": "Brocoli",
+      "categorie": "Légumes",
+      "calories": 34,
+      "proteines": 2.8,
+      "glucides": 7,
+      "lipides": 0.4
+    },
+    {
+      "id": 24,
+      "nom": "Tomate",
+      "categorie": "Légumes",
+      "calories": 18,
+      "proteines": 0.9,
+      "glucides": 3.9,
+      "lipides": 0.2
+    },
+    {
+      "id": 25,
+      "nom": "Salade verte",
+      "categorie": "Légumes",
+      "calories": 15,
+      "proteines": 1.4,
+      "glucides": 2.9,
+      "lipides": 0.2
+    },
+    {
+      "id": 26,
+      "nom": "Carotte",
+      "categorie": "Légumes",
+      "calories": 41,
+      "proteines": 0.9,
+      "glucides": 10,
+      "lipides": 0.2
+    },
+    {
+      "id": 27,
+      "nom": "Concombre",
+      "categorie": "Légumes",
+      "calories": 15,
+      "proteines": 0.7,
+      "glucides": 3.6,
+      "lipides": 0.1
+    },
+    {
+      "id": 28,
+      "nom": "Amandes",
+      "categorie": "Fruits secs & Oléagineux",
+      "calories": 579,
+      "proteines": 21,
+      "glucides": 22,
+      "lipides": 50
+    },
+    {
+      "id": 29,
+      "nom": "Noix",
+      "categorie": "Fruits secs & Oléagineux",
+      "calories": 654,
+      "proteines": 15,
+      "glucides": 14,
+      "lipides": 65
+    },
+    {
+      "id": 30,
+      "nom": "Cacahuètes",
+      "categorie": "Fruits secs & Oléagineux",
+      "calories": 567,
+      "proteines": 26,
+      "glucides": 16,
+      "lipides": 49
+    },
+    {
+      "id": 31,
+      "nom": "Huile d'olive",
+      "categorie": "Matières grasses",
+      "calories": 884,
+      "proteines": 0,
+      "glucides": 0,
+      "lipides": 100
+    },
+    {
+      "id": 32,
+      "nom": "Beurre",
+      "categorie": "Matières grasses",
+      "calories": 717,
+      "proteines": 0.9,
+      "glucides": 0.1,
+      "lipides": 81
+    },
+    {
+      "id": 33,
+      "nom": "Chocolat noir 70%",
+      "categorie": "Sucreries",
+      "calories": 546,
+      "proteines": 6.2,
+      "glucides": 52,
+      "lipides": 32
+    },
+    {
+      "id": 34,
+      "nom": "Miel",
+      "categorie": "Sucreries",
+      "calories": 304,
+      "proteines": 0.3,
+      "glucides": 82,
+      "lipides": 0
+    },
+    {
+      "id": 35,
+      "nom": "Flocons d'avoine",
+      "categorie": "Féculents",
+      "calories": 389,
+      "proteines": 17,
+      "glucides": 66,
+      "lipides": 7
+    },
+    {
+      "id": 36,
+      "nom": "Quinoa cuit",
+      "categorie": "Féculents",
+      "calories": 120,
+      "proteines": 4.4,
+      "glucides": 21,
+      "lipides": 1.9
+    },
+    {
+      "id": 37,
+      "nom": "Lentilles cuites",
+      "categorie": "Légumineuses",
+      "calories": 116,
+      "proteines": 9,
+      "glucides": 20,
+      "lipides": 0.4
+    },
+    {
+      "id": 38,
+      "nom": "Pois chiches cuits",
+      "categorie": "Légumineuses",
+      "calories": 164,
+      "proteines": 8.9,
+      "glucides": 27,
+      "lipides": 2.6
+    },
+    {
+      "id": 39,
+      "nom": "Haricots rouges cuits",
+      "categorie": "Légumineuses",
+      "calories": 127,
+      "proteines": 8.7,
+      "glucides": 23,
+      "lipides": 0.5
+    },
+    {
+      "id": 40,
+      "nom": "Tofu",
+      "categorie": "Protéines végétales",
+      "calories": 76,
+      "proteines": 8,
+      "glucides": 1.9,
+      "lipides": 4.8
+    }
+  ]
+}

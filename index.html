@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4CAF50">
+    
+    <title>CalCount</title>
+
+    <!-- Mode clair -->
+    <link rel="stylesheet" href="style.css">
+
+    
+</head>
+<body>
+    <div class="container">
+        <!-- En-tête -->
+        <div class="header">
+            <h1> Today </h1>
+        </div>
+
+        <!-- Onglets -->
+        <div class="tabs">
+            <button class="tab active" onclick="changerOnglet('repas')">📊 Mes Repas</button>
+            <button class="tab" onclick="changerOnglet('aliments')">🥗 Aliments</button>
+        </div>
+
+        <!-- ONGLET REPAS -->
+        <div id="tab-repas" class="tab-content active">
+
+            
+            <!-- Résumé du jour -->
+            <div class="summary-card">
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <div class="summary-label">Calories</div>
+                        <div class="summary-value" id="total-calories">0</div>
+                        <div class="summary-label">kcal</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Protéines</div>
+                        <div class="summary-value" id="total-proteines">0</div>
+                        <div class="summary-label">g</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Glucides</div>
+                        <div class="summary-value" id="total-glucides">0</div>
+                        <div class="summary-label">g</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Lipides</div>
+                        <div class="summary-value" id="total-lipides">0</div>
+                        <div class="summary-label">g</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Catégories de repas avec leurs contenus -->
+<div class="card">
+    <h3 style="margin-bottom: 20px; color: #333;">🍽️ Mes repas</h3>
+    
+    <!-- BREAKFAST -->
+    <div class="meal-section">
+        <div class="meal-category-header" onclick="ouvrirModalRepas('Breakfast', '🌅')">
+            <div class="meal-category-content">
+                <span class="meal-icon">🌅</span>
+                <span class="meal-name">Breakfast</span>
+                <span class="meal-count" id="count-breakfast">0 aliment(s)</span>
+            </div>
+            <button class="btn-add-meal">+</button>
+        </div>
+        <div class="meal-items" id="repas-breakfast">
+            <!-- Les aliments du breakfast apparaîtront ici -->
+        </div>
+    </div>
+
+    <!-- LUNCH -->
+    <div class="meal-section">
+        <div class="meal-category-header" onclick="ouvrirModalRepas('Lunch', '☀️')">
+            <div class="meal-category-content">
+                <span class="meal-icon">☀️</span>
+                <span class="meal-name">Lunch</span>
+                <span class="meal-count" id="count-lunch">0 aliment(s)</span>
+            </div>
+            <button class="btn-add-meal">+</button>
+        </div>
+        <div class="meal-items" id="repas-lunch">
+            <!-- Les aliments du lunch apparaîtront ici -->
+        </div>
+    </div>
+
+    <!-- SNACKS -->
+    <div class="meal-section">
+        <div class="meal-category-header" onclick="ouvrirModalRepas('Snacks', '🍎')">
+            <div class="meal-category-content">
+                <span class="meal-icon">🍎</span>
+                <span class="meal-name">Snacks</span>
+                <span class="meal-count" id="count-snacks">0 aliment(s)</span>
+            </div>
+            <button class="btn-add-meal">+</button>
+        </div>
+        <div class="meal-items" id="repas-snacks">
+            <!-- Les aliments des snacks apparaîtront ici -->
+        </div>
+    </div>
+
+    <!-- DINNER -->
+    <div class="meal-section">
+        <div class="meal-category-header" onclick="ouvrirModalRepas('Dinner', '🌙')">
+            <div class="meal-category-content">
+                <span class="meal-icon">🌙</span>
+                <span class="meal-name">Dinner</span>
+                <span class="meal-count" id="count-dinner">0 aliment(s)</span>
+            </div>
+            <button class="btn-add-meal">+</button>
+        </div>
+        <div class="meal-items" id="repas-dinner">
+            <!-- Les aliments du dinner apparaîtront ici -->
+        </div>
+    </div>
+</div>
+
+<!-- Modal pour ajouter des aliments -->
+<div id="modal-repas" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="modal-titre">Ajouter un repas</h3>
+            <button class="btn-close" onclick="fermerModalRepas()">✕</button>
+        </div>
+        
+        <div class="modal-body">
+            <!-- Liste des aliments déjà ajoutés -->
+            <div id="aliments-repas-modal">
+                <!-- Les aliments ajoutés apparaîtront ici -->
+            </div>
+
+            <!-- Formulaire d'ajout -->
+            <div class="form-row" style="margin-top: 15px;">
+                <div class="form-group">
+                    <label for="select-aliment-modal">Aliment</label>
+                    <select id="select-aliment-modal" onchange="ajouterAlimentAuRepasModal()">
+                        <option value="">Sélectionner...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quantite-aliment-modal">Quantité (g)</label>
+                    <input type="number" id="quantite-aliment-modal" placeholder="100" onkeypress="if(event.key === 'Enter') ajouterAlimentAuRepasModal()">
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal-footer">
+            <button onclick="fermerModalRepas()" style="width: 100%;">Terminer</button>
+        </div>
+    </div>
+</div>
+
+
+
+        <!-- ONGLET ALIMENTS -->
+        <div id="tab-aliments" class="tab-content">
+            <!-- Ajouter un aliment -->
+            <div class="card">
+                <h3 style="margin-bottom: 20px; color: #333;">➕ Ajouter un aliment</h3>
+                
+                <div class="form-group">
+                    <label for="nom-aliment">Nom de l'aliment</label>
+                    <input type="text" id="nom-aliment" placeholder="Ex: Poulet grillé">
+                </div>
+
+                <p style="color: #666; font-size: 0.9em; margin-bottom: 15px;">
+                    Valeurs nutritionnelles pour 100g :
+                </p>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="calories-aliment">Calories (kcal)</label>
+                        <input type="number" id="calories-aliment" placeholder="165">
+                    </div>
+                    <div class="form-group">
+                        <label for="proteines-aliment">Protéines (g)</label>
+                        <input type="number" id="proteines-aliment" placeholder="31">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="glucides-aliment">Glucides (g)</label>
+                        <input type="number" id="glucides-aliment" placeholder="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="lipides-aliment">Lipides (g)</label>
+                        <input type="number" id="lipides-aliment" placeholder="3.6">
+                    </div>
+                </div>
+
+                <button onclick="ajouterAliment()">Ajouter l'aliment</button>
+            </div>
+
+            <!-- Liste des aliments -->
+            <div class="card">
+                <h3 style="margin-bottom: 20px; color: #333;">🥗 Ma base d'aliments</h3>
+                <div id="liste-aliments">
+                    <div class="empty-state">
+                        <p>Aucun aliment enregistré</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
