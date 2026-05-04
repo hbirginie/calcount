@@ -17,12 +17,54 @@
         <div id="tab-repas" class="tab-content active">
             <div class="summary-card">
                 <div class="calorie-progress">
-                    <div class="calorie-progress-header">
-                        <span>Calories</span>
-                        <span id="calorie-progress-text">0 / 3000 kcal</span>
-                    </div>
-                    <div class="progress-bar" aria-hidden="true">
-                        <div class="progress-bar-fill" id="calorie-progress-fill"></div>
+                    <div class="calorie-circle-container">
+                        <svg class="calorie-circle" viewBox="0 0 200 200">
+                            <defs>
+                                <linearGradient id="gradient-calories" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#34c759;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#30d158;stop-opacity:1" />
+                                </linearGradient>
+                                <linearGradient id="gradient-warning" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#ff9500;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#ff9f0a;stop-opacity:1" />
+                                </linearGradient>
+                                <linearGradient id="gradient-danger" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#ff3b30;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#ff453a;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            
+                            <circle
+                                class="calorie-circle-bg"
+                                cx="100"
+                                cy="100"
+                                r="85"
+                                fill="none"
+                                stroke="#f2f2f7"
+                                stroke-width="12"
+                                stroke-linecap="round"
+                            />
+                            
+                            <circle
+                                class="calorie-circle-progress"
+                                id="calorie-circle-progress"
+                                cx="100"
+                                cy="100"
+                                r="85"
+                                fill="none"
+                                stroke="url(#gradient-calories)"
+                                stroke-width="12"
+                                stroke-linecap="round"
+                                transform="rotate(-90 100 100)"
+                            />
+                        </svg>
+                        
+                        <div class="calorie-circle-content">
+                            <div class="calorie-circle-value" id="calorie-current">0</div>
+                            <div class="calorie-circle-separator">/</div>
+                            <div class="calorie-circle-goal" id="calorie-goal">2600</div>
+                            <div class="calorie-circle-unit">kcal</div>
+                        </div>
                     </div>
                 </div>
 
@@ -31,16 +73,28 @@
                         <div class="summary-label">Protéines</div>
                         <div class="summary-value" id="total-proteines">0</div>
                         <div class="summary-label">g</div>
+                        <div class="progress-bar-mini">
+                            <div class="progress-bar-fill-mini" id="proteines-progress-fill"></div>
+                        </div>
+                        <div class="summary-progress-text" id="proteines-progress-text">0 / 150 g</div>
                     </div>
                     <div class="summary-item">
                         <div class="summary-label">Glucides</div>
                         <div class="summary-value" id="total-glucides">0</div>
                         <div class="summary-label">g</div>
+                        <div class="progress-bar-mini">
+                            <div class="progress-bar-fill-mini" id="glucides-progress-fill"></div>
+                        </div>
+                        <div class="summary-progress-text" id="glucides-progress-text">0 / 300 g</div>
                     </div>
                     <div class="summary-item">
                         <div class="summary-label">Lipides</div>
                         <div class="summary-value" id="total-lipides">0</div>
                         <div class="summary-label">g</div>
+                        <div class="progress-bar-mini">
+                            <div class="progress-bar-fill-mini" id="lipides-progress-fill"></div>
+                        </div>
+                        <div class="summary-progress-text" id="lipides-progress-text">0 / 80 g</div>
                     </div>
                 </div>
             </div>

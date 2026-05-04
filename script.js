@@ -27,31 +27,110 @@ function sauvegarderRepasParCategorie(repas) {
 
 function chargerObjectifCalories() {
     const objectif = localStorage.getItem('objectif_calories');
-    const valeur = objectif ? parseFloat(objectif) : 3000;
-    return Number.isFinite(valeur) && valeur > 0 ? valeur : 3000;
+    const valeur = objectif ? parseFloat(objectif) : 2600;
+    return Number.isFinite(valeur) && valeur > 0 ? valeur : 2600;
 }
 
 function mettreAJourBarreCalories(totalCalories) {
     const objectifCalories = chargerObjectifCalories();
     const progression = Math.min((totalCalories / objectifCalories) * 100, 100);
     
-    const texte = document.getElementById('calorie-progress-text');
-    const barre = document.getElementById('calorie-progress-fill');
+    const currentElement = document.getElementById('calorie-current');
+    const goalElement = document.getElementById('calorie-goal');
+    
+    if (currentElement) {
+        currentElement.textContent = Math.round(totalCalories);
+    }
+    
+    if (goalElement) {
+        goalElement.textContent = Math.round(objectifCalories);
+    }
+    
+    const circle = document.getElementById('calorie-circle-progress');
+    
+    if (circle) {
+        const radius = 85;
+        const circumference = 2 * Math.PI * radius;
+        const offset = circumference - (progression / 100) * circumference;
+        
+        circle.style.strokeDashoffset = offset;
+        
+        if (progression >= 100) {
+            circle.setAttribute('stroke', 'url(#gradient-danger)');
+            circle.style.filter = 'drop-shadow(0 0 8px rgba(255, 59, 48, 0.4))';
+            circle.classList.add('complete');
+        } else if (progression >= 80) {
+            circle.setAttribute('stroke', 'url(#gradient-warning)');
+            circle.style.filter = 'drop-shadow(0 0 8px rgba(255, 149, 0, 0.4))';
+            circle.classList.remove('complete');
+        } else {
+            circle.setAttribute('stroke', 'url(#gradient-calories)');
+            circle.style.filter = 'drop-shadow(0 0 8px rgba(52, 199, 89, 0.3))';
+            circle.classList.remove('complete');
+        }
+    }
+}
+
+function chargerObjectifsMacros() {
+    const proteines = localStorage.getItem('objectif_proteines');
+    const glucides = localStorage.getItem('objectif_glucides');
+    const lipides = localStorage.getItem('objectif_lipides');
+    
+    return {
+        proteines: proteines ? parseFloat(proteines) : 100,
+        glucides: glucides ? parseFloat(glucides) : 240,
+        lipides: lipides ? parseFloat(lipides) : 50
+    };
+}
+
+function mettreAJourBarreMacro(type, valeurActuelle, objectif) {
+    const progression = Math.min((valeurActuelle / objectif) * 100, 100);
+    
+    const texte = document.getElementById(`${type}-progress-text`);
+    const barre = document.getElementById(`${type}-progress-fill`);
     
     if (texte) {
-        texte.textContent = `${totalCalories.toFixed(0)} / ${objectifCalories.toFixed(0)} kcal`;
+        texte.textContent = `${valeurActuelle.toFixed(0)} / ${objectif.toFixed(0)} g`;
     }
     
     if (barre) {
         barre.style.width = `${progression}%`;
         
+        let couleur;
+        switch(type) {
+            case 'proteines':
+                couleur = 'linear-gradient(90deg, #ff6b6b 0%, #ff8787 100%)';
+                break;
+            case 'glucides':
+                couleur = 'linear-gradient(90deg, #4dabf7 0%, #74c0fc 100%)';
+                break;
+            case 'lipides':
+                couleur = 'linear-gradient(90deg, #ffd43b 0%, #ffe066 100%)';
+                break;
+        }
+        
         if (progression >= 100) {
             barre.style.background = 'linear-gradient(90deg, #ff3b30 0%, #ff453a 100%)';
-        } else if (progression >= 80) {
+        } else if (progression >= 90) {
             barre.style.background = 'linear-gradient(90deg, #ff9500 0%, #ff9f0a 100%)';
         } else {
-            barre.style.background = 'linear-gradient(90deg, #34c759 0%, #30d158 100%)';
+            barre.style.background = couleur;
         }
+        
+        barre.style.boxShadow = `inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 0 0 1px ${getCouleurOmbre(type)}`;
+    }
+}
+
+function getCouleurOmbre(type) {
+    switch(type) {
+        case 'proteines':
+            return 'rgba(255, 107, 107, 0.1)';
+        case 'glucides':
+            return 'rgba(77, 171, 247, 0.1)';
+        case 'lipides':
+            return 'rgba(255, 212, 59, 0.1)';
+        default:
+            return 'rgba(0, 0, 0, 0.1)';
     }
 }
 
@@ -216,7 +295,13 @@ function calculerTotaux() {
     document.getElementById('total-lipides').textContent = totalLipides.toFixed(1);
     
     mettreAJourBarreCalories(totalCalories);
+    
+    const objectifsMacros = chargerObjectifsMacros();
+    mettreAJourBarreMacro('proteines', totalProteines, objectifsMacros.proteines);
+    mettreAJourBarreMacro('glucides', totalGlucides, objectifsMacros.glucides);
+    mettreAJourBarreMacro('lipides', totalLipides, objectifsMacros.lipides);
 }
+
 
 async function chargerAlimentsDepuisJSON() {
     const alimentsExistants = chargerAliments();
